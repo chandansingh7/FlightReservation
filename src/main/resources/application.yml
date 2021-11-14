@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: flight-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/db?createDatabaseIfNotExist=true
+    username: root
+    password: root1
+    driverClassName: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximumPoolSize: 10
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQL5Dialect
+
+  jsp:
+    database-platform: org.hibernate.dialect.MySQLDialect
+logging:
+  file:
+    name: /Coding/Logging/${spring.application.name}/log
+
+server:
+  port: 8090
+
